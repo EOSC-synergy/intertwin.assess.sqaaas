@@ -1,0 +1,42 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/2.0.0
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin:
+      branch: main
+      repo: https://gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin git:
+        commands:
+        - /usr/bin/env sh .sqa/script.chummy-corn-olm.sh
+        container: qc.acc_hazy-sapphire-bison
+  QC.Doc:
+    repos:
+      gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.hazy-amber-dingo.sh
+        container: qc.doc_cloudy-ruby-newfoundland
+      gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin git:
+        commands:
+        - /usr/bin/env sh .sqa/script.stinky-copper-tarsier.sh
+        container: qc.doc_snippy-olivine-panda
+  QC.Lic:
+    repos:
+      gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.wheezy-azure-wombat.sh
+        container: qc.lic_randy-turquoise-devil
+  QC.Ver:
+    repos:
+      gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.leaky-yellow-zebra.sh
+        container: qc.ver_muzzy-gamboge-monster
+timeout: 5400
