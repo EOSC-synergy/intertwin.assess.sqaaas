@@ -2,7 +2,7 @@ config:
   credentials: []
   project_repos:
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/2.0.0
+      branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin:
       branch: main
@@ -15,28 +15,32 @@ sqa_criteria:
     repos:
       gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin git:
         commands:
-        - /usr/bin/env sh .sqa/script.chummy-corn-olm.sh
-        container: qc.acc_hazy-sapphire-bison
+        - /usr/bin/env sh .sqa/script.scaly-asparagus-spider.sh
+        container: qc.acc_freaky-black-magpie
   QC.Doc:
     repos:
       gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.hazy-amber-dingo.sh
-        container: qc.doc_cloudy-ruby-newfoundland
+        - /usr/bin/env sh .sqa/script.woozy-xanthic-ant.sh
+        container: qc.doc_sickly-fuchsia-indri
       gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin git:
         commands:
-        - /usr/bin/env sh .sqa/script.stinky-copper-tarsier.sh
-        container: qc.doc_snippy-olivine-panda
+        - /usr/bin/env sh .sqa/script.cloudy-copper-fousek.sh
+        container: qc.doc_greasy-malachite-butterfly
+      gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.cranky-dandelion-lynx.sh
+        container: qc.doc_snoopy-ecru-macaw
   QC.Lic:
     repos:
       gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.wheezy-azure-wombat.sh
-        container: qc.lic_randy-turquoise-devil
+        - /usr/bin/env sh .sqa/script.tacky-fuchsia-hamster.sh
+        container: qc.lic_tacky-brown-spaniel
   QC.Ver:
     repos:
       gitlab.in2p3.fr/ipsl/espri/espri-mod/intertwin get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.leaky-yellow-zebra.sh
-        container: qc.ver_muzzy-gamboge-monster
+        - /usr/bin/env sh .sqa/script.goopy-sapphire-bloodhound.sh
+        container: qc.ver_blurry-copper-warthog
 timeout: 5400
